@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'user',
     'protestId',
     'blog',
-    'donation',
+    'donations',
+    'resources',
 ]
 
 MIDDLEWARE = [
