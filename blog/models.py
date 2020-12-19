@@ -1,3 +1,4 @@
+from protestId.models import Protest
 from django.db import models
 import uuid
 from django.conf import settings
@@ -9,6 +10,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=255, null=True, blank=True)
     body = models.TextField(null=True, blank=True)
     date = models.DateTimeField(default=timezone.now)
+    protest = models.ForeignKey(Protest,on_delete=models.CASCADE,null=True)
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 

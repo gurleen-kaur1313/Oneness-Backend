@@ -2,6 +2,7 @@ import graphene
 from graphene_django import DjangoObjectType
 from .models import Blog
 from graphql import GraphQLError
+from protestId.models import Protest
 
 
 class Blogs(DjangoObjectType):
@@ -10,14 +11,15 @@ class Blogs(DjangoObjectType):
 
 
 class Query(graphene.ObjectType):
-    myblog = graphene.List(Blogs)
+    myblog = graphene.List(Blogs,id = graphene.String())
 
 
-    def resolve_myblog(self,info):
+    def resolve_myblog(self,info,id):
         active=info.context.user
         if active.is_anonymous:
             raise GraphQLError("Not Logged In!")
-        return Blog.objects.all().order_by("-date")
+        temp = Protest.objects.get(id=id)
+        return Blog.objects.filter(protest=temp).order_by("-date")
 
 
 class AddBlog(graphene.Mutation):
