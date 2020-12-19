@@ -127,3 +127,16 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Object file
+*.o
+
+# Ada Library Information
+*.ali
+*.pro
+*pro/
+*.pyc
+*.pyo
+*__pycache__/
+*app/db.sqlite3
+*.sqlite3
