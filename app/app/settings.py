@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'donations',
     'resources',
     'ngo',
+    'location',
 ]
 
 MIDDLEWARE = [
