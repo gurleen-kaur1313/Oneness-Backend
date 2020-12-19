@@ -45,7 +45,15 @@ INSTALLED_APPS = [
     'ngo',
     'location',
     'emergency',
+    'graphene_django',
 ]
+
+GRAPHENE = {
+    'SCHEMA': 'app.schema.schema',
+    'MIDDLEWARE': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware',
+    ],
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
