@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,17 +21,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY','hj)+-eu1qyc45%j++vzt(=tmm-h2xu7snb=^pq4v622+7f2$w^')
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY', 'hj)+-eu1qyc45%j++vzt(=tmm-h2xu7snb=^pq4v622+7f2$w^')
 
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER','harmanjit140500@gmail.com')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD','123456')
+EMAIL_HOST_USER = os.environ.get(
+    'EMAIL_HOST_USER', 'harmanjit140500@gmail.com')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '123456')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-import dj_database_url
 
-ALLOWED_HOSTS = ['0.0.0.0','localhost','127.0.0.1','oneness-backend.herokuapp.com/']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost',
+                 '127.0.0.1', 'oneness-backend.herokuapp.com/']
 
 
 # Application definition
@@ -155,8 +158,8 @@ STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'app/static') ]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'app/static')]
