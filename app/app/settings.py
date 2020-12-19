@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'blog',
     'donations',
     'resources',
+    'ngo',
 ]
 
 MIDDLEWARE = [
