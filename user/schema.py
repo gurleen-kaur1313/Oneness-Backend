@@ -16,7 +16,7 @@ class Query(graphene.ObjectType):
         active = info.context.user
         if active.is_anonymous:
             raise GraphQLError("Not Logged In!")
-        return User.objects.get()
+        return active
 
 
 class CreateUser(graphene.Mutation):
