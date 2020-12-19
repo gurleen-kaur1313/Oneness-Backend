@@ -18,7 +18,7 @@ class Query(graphene.ObjectType):
         if active.is_anonymous:
             raise GraphQLError("Not Logged In!")
         protest=Protest.objects.get(id=id)
-        return Donation.objects.filter(protest=protest).order_by("-amount")b
+        return Donation.objects.filter(protest=protest).order_by("-amount")
     
 
 class CreateDonation(graphene.Mutation):
