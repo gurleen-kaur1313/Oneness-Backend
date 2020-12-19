@@ -14,9 +14,6 @@ class Query(graphene.ObjectType):
 
 
     def resolve_myemergency(self,info):
-        active=info.context.user
-        if active.is_anonymous:
-            raise GraphQLError("Not Logged In!")
         return Emergency.objects.all().order_by("-time")
 
 
