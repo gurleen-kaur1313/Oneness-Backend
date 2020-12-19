@@ -32,11 +32,12 @@ class Query(graphene.ObjectType):
         protest = Protest.objects.get(id=id)
         return protest
 
-    def resolve_dates(self, info):
+    def resolve_dates(self, info,id):
         active = info.context.user
         if active.is_anonymous:
             raise GraphQLError("Not Logged In!")
-        return Calendar.objects.all()
+        temp = Protest.objects.get(id=id)
+        return Calendar.objects.filter(protest= temp).order_by("-date")
 
 
 class CraeteProtest(graphene.Mutation):

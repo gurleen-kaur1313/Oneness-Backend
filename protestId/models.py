@@ -26,6 +26,7 @@ class Calendar(models.Model):
     day = models.IntegerField(null=True, blank=True)
     month = models.IntegerField(null=True, blank=True)
     year = models.IntegerField(null=True, blank=True)
+    date = models.DateTimeField(auto_now=True)
     protest = models.ForeignKey(Protest, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
