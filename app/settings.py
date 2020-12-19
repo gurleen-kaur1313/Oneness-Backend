@@ -33,7 +33,7 @@ DEBUG = True
 
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost',
-                 '127.0.0.1', 'oneness-backend.herokuapp.com/']
+                 '127.0.0.1', 'oneness-backend.herokuapp.com','http://oneness-backend.herokuapp.com']
 
 
 # Application definition
