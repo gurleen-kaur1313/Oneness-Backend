@@ -11,7 +11,7 @@ class Blogs(DjangoObjectType):
 
 
 class Query(graphene.ObjectType):
-    myblog = graphene.List(Blogs,id = graphene.String())
+    myblog = graphene.List(Blogs,id = graphene.String(required=True))
 
 
     def resolve_myblog(self,info,id):

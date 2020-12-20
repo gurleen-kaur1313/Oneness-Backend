@@ -17,7 +17,7 @@ class Dates(DjangoObjectType):
 class Query(graphene.ObjectType):
     allprotest = graphene.List(Protests)
     oneprotest = graphene.Field(Protests, id=graphene.String(required=True))
-    dates = graphene.Field(Dates)
+    dates = graphene.Field(Dates,id = graphene.String(required=True))
 
     def resolve_allprotest(self, info):
         active = info.context.user
